@@ -1,0 +1,4 @@
+UI_EN = {
+    UI_Text_Sample = "Sample",
+    UI_Text_Sampledesc = "This is a sample description",
+}
