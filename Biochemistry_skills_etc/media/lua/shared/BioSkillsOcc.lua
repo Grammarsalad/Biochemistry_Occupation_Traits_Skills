@@ -12,11 +12,12 @@ local function initOETraits()
     --- add new traits
 
     -- Sample trait--occupation (probably?)
-    local sample = TraitFactory.addTrait("sample", getText("UI_Text_Sample"), 0, getText("UI_Text_Sampledesc"), true);
-
-    --Exclusives
-    --outdoorsman shouldn't show up on characters with this trait
-    TraitFactory.setMutualExclusive("Outdoorsman", "sample");
+    -- local sample = TraitFactory.addTrait("sample", getText("UI_Text_Sample"), 0, getText("UI_Text_Sampledesc"), true);
+    local chemiststudent = TraitFactory.addTrait("chemiststudent", getText("UI_Text_ChemStudent"), 3, getText("UI_Text_ChemStudentdesc"), false);
+    chemiststudent:addXPBoost(Perks.Biochemistry, 1);
+    -- Exclusives
+    -- outdoorsman shouldn't show up on characters with this trait
+    -- TraitFactory.setMutualExclusive("Outdoorsman", "sample");
 
     --- finish up traits list (not sure what this does)
     TraitFactory.sortList();
@@ -45,9 +46,9 @@ local function initOEProf()
     -- BURGER FLIPPER
     
     local burgerflipper = ProfessionFactory.getProfession('burgerflipper');
-     if not OE_isTraitInList(burgerflipper:getFreeTraits(), "sample") then
-        burgerflipper:addFreeTrait("sample");
-     end
+ --    if not OE_isTraitInList(burgerflipper:getFreeTraits(), "sample") then
+ --       burgerflipper:addFreeTrait("sample");
+ --    end
          
     BaseGameCharacterDetails.SetProfessionDescription(burgerflipper);
 
