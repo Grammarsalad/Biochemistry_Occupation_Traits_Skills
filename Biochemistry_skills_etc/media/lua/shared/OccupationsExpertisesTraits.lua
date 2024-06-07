@@ -45,7 +45,10 @@ local function initOEProf()
     -- BURGER FLIPPER
     
     local burgerflipper = ProfessionFactory.getProfession('burgerflipper');
-          burgerflipper:addFreeTrait("sample")
+     if not OE_isTraitInList(burgerflipper:getFreeTraits(), "sample") then
+        burgerflipper:addFreeTrait("sample");
+     end
+         
     BaseGameCharacterDetails.SetProfessionDescription(burgerflipper);
 
 
