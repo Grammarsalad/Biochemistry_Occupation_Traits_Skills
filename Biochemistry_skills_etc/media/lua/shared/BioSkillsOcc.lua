@@ -45,12 +45,12 @@ local function initOEProf()
 
     -- BURGER FLIPPER
     
-    local burgerflipper = ProfessionFactory.getProfession('burgerflipper');
+ --    local burgerflipper = ProfessionFactory.getProfession('burgerflipper');
  --    if not OE_isTraitInList(burgerflipper:getFreeTraits(), "sample") then
  --       burgerflipper:addFreeTrait("sample");
  --    end
          
-    BaseGameCharacterDetails.SetProfessionDescription(burgerflipper);
+ --   BaseGameCharacterDetails.SetProfessionDescription(burgerflipper);
 
 
 --  This is where I would replace pseudo traits with the actual traits (I think)
