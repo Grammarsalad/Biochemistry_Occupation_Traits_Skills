@@ -52,6 +52,41 @@ local function initOEProf()
          
  --   BaseGameCharacterDetails.SetProfessionDescription(burgerflipper);
 
+--  Cooking is Chemistry
+
+    local chef = ProfessionFactory.getProfession('chef');
+-- Yes, a bit redundant
+    if getActivatedMods():contains("BioChemistryLife") then    
+        chef:addXPBoost(Perks.Biochemistry, 1);
+    end 
+    BaseGameCharacterDetails.SetProfessionDescription(chef);
+
+--  Doctors study chemistry
+
+    local doctor = ProfessionFactory.getProfession('doctor');
+    if getActivatedMods():contains("BioChemistryLife") then    
+        doctor:addXPBoost(Perks.Biochemistry, 2);
+    end 
+    BaseGameCharacterDetails.SetProfessionDescription(doctor);
+
+   -- Engineers have to know some 
+
+    local engineer = ProfessionFactory.getProfession('engineer');
+    if getActivatedMods():contains("BioChemistryLife") then    
+        engineer:addXPBoost(Perks.Biochemistry, 1);
+    end 
+    BaseGameCharacterDetails.SetProfessionDescription(engineer);
+
+
+--  Nurses study some chemistry
+
+    local nurse = ProfessionFactory.getProfession('nurse');
+    if getActivatedMods():contains("BioChemistryLife") then    
+        nurse:addXPBoost(Perks.Biochemistry, 1);
+    end 
+    BaseGameCharacterDetails.SetProfessionDescription(nurse);
+
+
 
 --  This is where I would replace pseudo traits with the actual traits (I think)
     local profList = ProfessionFactory.getProfessions()
