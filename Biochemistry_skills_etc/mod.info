@@ -1,0 +1,5 @@
+name=Biochemistry Skills, Occupations, and Traits
+id=BiochemistrySkillsEtc
+poster=poster.png
+description=This is a simple mod supplementing Mereszhka's Biochemistry of Life mod (for Project Zomboid) with chemistry based occupations, skills, and traits
+require=BioChemistryLife
