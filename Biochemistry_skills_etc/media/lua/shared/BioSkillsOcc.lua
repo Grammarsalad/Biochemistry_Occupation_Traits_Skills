@@ -87,16 +87,15 @@ local function initOEProf()
     BaseGameCharacterDetails.SetProfessionDescription(nurse);
 
 
-
 --  This is where I would replace pseudo traits with the actual traits (I think)
     local profList = ProfessionFactory.getProfessions()
     for i=1,profList:size() do
         local prof = profList:get(i-1)
-        if prof:getType() == "unemployed" then
-            prof:setDescription(getText("UI_profdesc_unemployed") .. "\nCan slack off on a chair, couch or bed to reduce boredom.\nSlacker trait will appear in game after character creation.");
-        else
-            BaseGameCharacterDetails.SetProfessionDescription(prof)
-        end
+ --       if prof:getType() == "unemployed" then
+ --           prof:setDescription(getText("UI_profdesc_unemployed") .. "\nCan slack off on a chair, couch or bed to reduce boredom.\nSlacker trait will appear in game after character creation.");
+ --       else
+ --           BaseGameCharacterDetails.SetProfessionDescription(prof)
+ --       end
     end
     
 end
