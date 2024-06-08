@@ -1,0 +1,860 @@
+module BiochemistryLife
+{
+	imports
+	{
+		Base
+	}
+
+    	recipe Refill Propane Gas
+        {
+		PropaneBL=1,
+		destroy PropaneTank=1,
+
+           	Result:PropaneTank,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		Time 		: 600,
+        }
+
+    	recipe Powdered Corn
+        {
+           	Corn=1,
+           	keep MortarPestle,
+		
+		Result:PowderedCorn,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: GrindingBL,
+		Time 		: 400,       		
+        }
+
+    	recipe Powdered Stone
+        {
+           	Stone=1,
+           	keep MortarPestle,
+		
+		Result:GrindedStone,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: GrindingBL,
+		Time 		: 400,       		
+        }
+
+    	recipe Prepare Glue Paste
+        {
+		keep Bowl,
+		Water=5,
+           	Flour=1,
+		keep Mixer,
+
+           	Result:GluePaste,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: MixerBL,
+		Time 		: 600,
+        }
+
+    	recipe Make Red Hair Dye
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		PaintRed;2,
+		Water=5,
+		keep Mixer,
+
+           	Result:HairDyeRed,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: MixerBL,
+		Time 		: 800,
+        }
+
+    	recipe Make Blue Hair Dye
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		PaintBlue;2,
+		Water=5,
+		keep Mixer,
+
+
+           	Result:HairDyeBlue,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: MixerLB,
+		Time 		: 800,
+        }
+
+    	recipe Make Blonde Hair Dye
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		PaintYellow;2,
+		Water=5,
+		keep Mixer,
+
+           	Result:HairDyeBlonde,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: MixerBL,
+		Time 		: 800,
+        }
+
+    	recipe Make Pink Hair Dye
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		PaintPink;2,
+		Water=5,
+		keep Mixer,
+
+           	Result:HairDyePink,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: MixerBL,
+		Time 		: 800,
+        }
+
+    	recipe Extract Salt
+        {
+           	Crisps/Crisps2/Crisps3/Crisps4/Crackers,
+		keep MortarPestle,
+
+           	Result:Salt,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem5,
+		Sound 		: GrindingBL,
+		Time 		: 600,
+        }
+
+    	recipe Make Glue
+        {
+           	GluePaste;3,
+		Gliceryn=1,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+           	keep IndustrialPress,
+		
+		Result:Glue,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem10,
+		SkillRequired 	: Biochemistry=1,
+		Sound 		: PressBL,
+		Time 		: 800,
+		NeedToBeLearn	: true,
+
+        }
+
+    	recipe Make Wood Glue
+        {
+           	GluePaste;5,
+		BucketPlasterFull;1,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+           	keep IndustrialPress,
+		
+		Result:Woodglue,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem10,
+		SkillRequired 	: Biochemistry=2,
+		Sound 		: PressBL,
+		Time 		: 800,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Condense Gliceryn
+        {
+           	CornOil;1,
+		Water=5,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		Salt=1,
+		EthanolBL;1,
+		keep LabCondenser,
+
+           	Result:Gliceryn,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem10,
+		SkillRequired 	: Biochemistry=3,
+		Sound 		: CondenserBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Make Plaster Powder
+        {
+
+		Gravelbag=1,
+		PropaneTank;1,
+		Water=5,
+           	keep IndustrialPress,
+		Yeast;1,
+
+           	Result:PlasterPowder,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=3,
+		Sound 		: PressBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+
+        }
+
+    	recipe Make Concrete Powder
+        {
+
+		Dirtbag=1,
+		GrindedStone=5,
+		Water=5,
+		PaintWhite;2,
+           	keep IndustrialPress,
+
+
+           	Result:ConcretePowder,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=4,
+		Sound 		: PressBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Make Fertilizer
+        {
+
+		Garbagebag=1,
+		Dirtbag=1,
+		CompostBag;1,
+		Worm=2,
+		Cigarettes=5,
+           	keep IndustrialPress,
+
+           	Result:Fertilizer,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem20,
+		SkillRequired 	: Biochemistry=4,
+		Sound 		: PressBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Distill Corn Oil
+        {
+           	PowderedCorn=5,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+           	keep Distiller,
+		Water=5,
+           	Result:CornOil,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=4,
+		Sound 		: DistillOilLB,
+		Time 		: 400,
+		NeedToBeLearn	: true,
+
+        }
+
+    	recipe Distill Bleach
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		EthanolBL;5,
+		Salt=1,
+		Water=5,
+           	keep Distiller,
+
+           	Result:Bleach,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=4,
+		Sound 		: DistillOilLB,
+		Time 		: 800,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Distill Vinegar
+        {
+           	Wine=1,
+		Sugar=1,
+		Water=5,
+		GrapeLeaves=1,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		keep Distiller,
+
+           	Result:Vinegar,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem20,
+		SkillRequired 	: Biochemistry=5,
+		Sound 		: DistillOilLB,
+		Time 		: 800,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Distill Cleaning Liquid
+        {
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+           	Gliceryn=1,
+		Water=5,
+		Vinegar=1,
+		keep Distiller,
+
+           	Result:CleaningLiquid,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=5,
+		Sound 		: DistillOilLB,
+		Time 		: 400,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Distill Petrol
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		EthanolBL;5,
+		EmptyPetrolCan=1,
+		CornOil;5,
+		AcidBarrel;1,
+           	keep Distiller,
+
+           	Result:PetrolCan,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=6,
+		Sound 		: DistillOilLB,
+		Time 		: 700,
+		NeedToBeLearn	: true,
+
+        }
+    	recipe Electrolysis Ethanol
+        {
+           	Strewberrie=5,
+		Sugar=1,
+		Yeast;1,
+		Battery=1,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+           	keep Distiller,
+		Water=5,
+
+           	Result:EthanolBL,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=6,
+		Sound 		: CookBL,
+		Time 		: 700,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Condense Disinfectant
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		WildGarlicCataplasm=1,
+		PropaneTank;1,
+		Water=5,
+		AcidFluor;1,
+           	keep LabCondenser,
+
+           	Result:Disinfectant,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=6,
+		Sound 		: CondenserBL,
+		Time 		: 800,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Condense Propane Gas
+        {
+		MetanoBL=1,
+		EthanolBL;5,
+           	keep LabCondenser,
+
+           	Result:PropaneBL,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=7,
+		Sound 		: CondenserBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+	
+    	recipe Condense Antiviral
+        {
+           	CommonMallow=3,
+		Water=5,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		WhiskeyFull=1,
+		keep LabCondenser,
+
+           	Result:AfluI,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem20,
+		SkillRequired 	: Biochemistry=7,
+		Sound 		: CondenserBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Make Energy Drink
+        {
+           	Ginseng=2,
+		Water=5,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		PillsVitamins;1,
+		keep Mixer,
+
+           	Result:EnergyDrinkG,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem15,
+		SkillRequired 	: Biochemistry=7,
+		Sound 		: MixerBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Compress Propane Gas
+        {
+		CompostBag;2,
+		DeadRat/DeadMouse/DeadRabbit/DeadSquirrel/Perch/Crappie/Bass,
+		Worm=2,
+           	keep IndustrialPress,
+
+           	Result:MetanoBL,
+           	RemoveResultItem:false,
+		AllowRottenItem:true,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem20,
+		SkillRequired 	: Biochemistry=4,
+		Sound 		: PressBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Powdered Sleeping Tablets
+        {
+           	PillsSleepingTablets=1,
+           	keep MortarPestle,
+		
+		Result:GrindedSleep,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem10,
+		SkillRequired 	: Biochemistry=4,
+		Sound 		: GrindingBL,
+		Time 		: 400,  
+		NeedToBeLearn	: true,     		
+        }
+
+    	recipe Make Toxic Bomb
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		Water=5,
+		MetanoBL=1,
+		EthanolBL=1,
+		GardeningSprayMilk=1,
+		keep Mixer,
+
+           	Result:BombBL,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=7,
+		Sound 		: MixerBL,
+		Time 		: 600,
+		NeedToBeLearn	: true, 
+        }
+
+    	recipe Make Ephedrine
+        {
+           	GrindedSleep=1,
+		BakingSoda;2,
+		BlackSage=1,
+		keep Mixer,
+
+           	Result:Ephedrine,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=8,
+		Sound 		: MixerBL,
+		Time 		: 800,
+		NeedToBeLearn	: true, 
+        }
+
+    	recipe Make Dead Eye
+        {
+           	Ephedrine=5,
+		ComfreyCataplasm=2,
+		Pills;3,
+		WhiskeyFull=1,
+		keep BunsenBurner,
+
+           	Result:BloodyEye,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=8,
+		Sound 		: BunsenBL,
+		Time 		: 800,
+		NeedToBeLearn	: true,
+        }
+
+
+    	recipe Make Fluorhidric Acid
+        {
+		ElectronicsScrap=5,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		Water=5,
+		Sugar/SugarBrown,
+		keep BunsenBurner,
+
+           	Result:AcidFluor,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=8,		
+		Sound 		: BunsenBL,
+		Time 		: 1800,
+		NeedToBeLearn	: true,
+        }
+
+	    	recipe Make Analgesic Powder
+        {
+           	AcidFluor;2,
+		GrindedSleep=1,
+		BlackSage=1,
+		keep Mixer,
+
+           	Result:Analgesic,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=8,
+		Sound 		: MixerBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+	    	recipe Make Painkillers
+        {
+           	Analgesic=1,
+           	keep IndustrialPress,
+		SmallSheetMetal/PopEmpty/Tarp/Aluminum,
+		
+           	Result:Pills,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=8,
+		Sound 		: PressBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }			
+
+	    	recipe Make Antibiotics
+        {
+		AcidBarrel;1,
+		WildGarlicCataplasm=1,
+           	keep IndustrialPress,
+		
+           	Result:Antibiotics,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=9,
+		Sound 		: PressBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+	    	recipe Make Benzene
+        {
+		AcidBarrel;1,
+           	Bleach=1,
+		CompostBag;1,
+		WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+           	keep BunsenBurner,
+		
+           	Result:Benzene,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=9,
+		Sound 		: BunsenBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+	    	recipe Condense Benzene
+        {
+		Benzene=1,
+           	keep LabCondenser,
+		
+           	Result:Trini,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=9,
+		Sound 		: CondenserBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+
+    	recipe Make Fire Bomb
+        {
+           	WaterBottleEmpty/BeerEmpty/PopBottleEmpty/WineEmpty2/WineEmpty/BleachEmpty/MayonnaiseEmpty/WhiskeyEmpty,
+		Trini=1,
+		MetanoBL=1,
+		keep Mixer,
+
+           	Result:FireBombBL,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=10,
+		Sound 		: MixerBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Synthesize Candy Pills
+        {
+           	Chocolate=1,
+		BeerBottle/BeerCan,
+		Sugar=1,
+		PillsVitamins;1,
+		PillsAntiDep;1,
+		Water=1,
+		keep Mixer,
+
+           	Result:CandyPills,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=10,
+		Sound 		: MixerBL,
+		Time 		: 600,
+		NeedToBeLearn	: true,
+        }
+
+  	recipe Cast Distiller
+        {
+    		SheetMetal=3,
+		SmallSheetMetal=6,
+		Screws=20,
+		keep WeldingMask,
+		keep Screwdriver,
+		keep Wrench,
+		BlowTorch=5,
+
+       	 	Result           	: Distiller,
+        	Time             	: 500,
+        	Category         	: Biochemistry,
+		Sound 			: WeldingLB,
+		AnimNode 		: Disassemble,
+		SkillRequired 		: MetalWelding=4,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Cast Industrial Press
+        {
+		SmallSheetMetal=5,
+		Screws=15,
+		keep WeldingMask,
+		keep Screwdriver,
+		keep Wrench,
+		BlowTorch=5,
+
+        	Result           	: IndustrialPress,
+        	Time             	: 500,
+        	Category         	: Biochemistry,
+		Sound 			: WeldingLB,
+		AnimNode 		: Disassemble,
+		SkillRequired 		: MetalWelding=4,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Cast Condenser
+        {
+		SmallSheetMetal=3,
+		Screws=5,
+		Wire;1,
+		keep WeldingMask,
+		keep Screwdriver,
+		BlowTorch=5,
+
+        	Result           	: LabCondenser,
+        	Time             	: 500,
+        	Category         	: Biochemistry,
+		Sound 			: WeldingLB,
+		AnimNode 		: Disassemble,
+		SkillRequired 		: MetalWelding=4,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Cast Mixer
+        {
+		SmallSheetMetal=7,
+		Screws=20,
+		keep WeldingMask,
+		keep Screwdriver,
+		BlowTorch=5,
+		Bowl=1,
+
+        	Result           	: Mixer,
+        	Time             	: 500,
+        	Category         	: Biochemistry,
+		Sound 			: WeldingLB,
+		AnimNode 		: Disassemble,
+		SkillRequired 		: MetalWelding=4,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Cast and Fill Sulfuric Barrel
+        {
+		SmallSheetMetal=30,
+		Screws=5,
+		keep WeldingMask,
+		keep Screwdriver,
+		BlowTorch=5,
+		WeldingRods;5,
+           	Bleach=3,
+		CarBattery1=1,
+
+        	Result           	: AcidBarrel,
+        	Time             	: 2000,
+        	Category         	: Biochemistry,
+		Sound 			: WeldingLB,
+		AnimNode 		: Disassemble,
+		SkillRequired 		: MetalWelding=4,
+		SkillRequired 		: Biochemistry=9,
+		NeedToBeLearn	: true,
+        }
+
+    	recipe Improvise Bunsen Burner
+        {
+		SmallSheetMetal=2,
+		Screws=10,
+		keep WeldingMask,
+		keep Screwdriver,
+		BlowTorch=5,
+		GlassWine=1,
+		MetalPipe=4,
+		WeldingRods;1,
+
+        	Result           	: BunsenBurner,
+        	Time             	: 500,
+        	Category         	: Biochemistry,
+		Sound 			: WeldingLB,
+		AnimNode 		: Disassemble,
+		SkillRequired 		: MetalWelding=4,
+		NeedToBeLearn	: true,
+        }
+
+	recipe Use Antizin
+ 	  {
+		AntizinBL=1,
+       		NeedToBeLearn:false,
+		RemoveResultItem:true,
+    		Time:15.0,
+		Result:AntizinBL,
+       		Category:Biochemistry,
+		OnCreate:AntizinUse,
+   	 }
+
+	recipe Use Dead Eye
+ 	  {
+		BloodyEye=1,
+       		NeedToBeLearn:false,
+		RemoveResultItem:true,
+    		Time:15.0,
+		Result:BloodyEye,
+       		Category:Biochemistry,
+		OnCreate:BoosterUse,
+   	 }
+
+
+    	recipe Make Heracles Drug
+        {
+           	Ephedrine=5,
+		AcidBarrel;1,
+		Pills;3,
+		WhiskeyFull=1,
+		keep BunsenBurner,
+
+           	Result:HeraclesEye,
+           	RemoveResultItem:false,
+		CanBeDoneFromFloor 	: true,
+       		Category        : Biochemistry,
+		OnGiveXP:Recipe.OnGiveXP.Biochem25,
+		SkillRequired 	: Biochemistry=9,
+		Sound 		: BunsenBL,
+		Time 		: 800,
+		NeedToBeLearn	: true,
+        }
+
+	recipe Use Heracles Drug
+ 	  {
+		HeraclesEye=1,
+       		NeedToBeLearn:false,
+		RemoveResultItem:true,
+    		Time:15.0,
+		Result:HeraclesEye,
+       		Category:Biochemistry,
+		OnCreate:BoosterStrengthUse,
+   	 }
+} 

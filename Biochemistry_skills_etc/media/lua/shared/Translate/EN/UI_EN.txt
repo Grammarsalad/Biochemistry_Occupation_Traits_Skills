@@ -1,6 +1,0 @@
-UI_EN = {
-    UI_Text_ChemStudent = "Chemistry Student",
-    UI_Text_ChemStudentdesc = "+1 Biochemistry",
-    UI_Text_Sample = "Sample",
-    UI_Text_Sampledesc = "This is a sample description",
-}

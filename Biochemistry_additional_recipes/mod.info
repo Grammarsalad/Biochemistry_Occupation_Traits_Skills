@@ -1,0 +1,5 @@
+name=Additional Biochemistry Recipes
+id=BiochemistryAdditionalRecipes
+description=This is a simple mod supplementing that addes new recipes for Mereszhka's Biochemistry of Life mod
+poster=poster.png
+require=BioChemistryLife
