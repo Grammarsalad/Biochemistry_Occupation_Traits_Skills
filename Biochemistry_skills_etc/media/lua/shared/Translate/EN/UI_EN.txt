@@ -1,6 +1,12 @@
 UI_EN = {
     UI_Text_ChemStudent = "Chemistry Student",
-    UI_Text_ChemStudentdesc = "+1 Biochemistry",
+    UI_Text_ChemStudentdesc = "+1 Biochemistry, gain some chemistry recipes",
+    UI_Text_chemmed = "Pharmacologist",
+    UI_Text_chemmeddesc = "+1 Biochemistry. +1 first aid. Gain some medical chemistry recipes",
+    UI_Text_chemistlabtech = "Lab Technician",
+    UI_Text_chemistlabtechdesc = "+1 Biochemistry. +1 Metalworking. Cab construct lab equipment",
+    UI_Text_chemmaster = "Chemical Expertise",
+    UI_Text_chemmasterdesc = "Gains almost all chemistry recipes",
     UI_Text_Sample = "Sample",
     UI_Text_Sampledesc = "This is a sample description",
     UI_prof_chemist = "Chemist",

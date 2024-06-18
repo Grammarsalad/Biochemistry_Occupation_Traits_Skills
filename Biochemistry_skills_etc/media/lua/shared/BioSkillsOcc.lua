@@ -15,11 +15,97 @@ local function initOETraits()
     -- local sample = TraitFactory.addTrait("sample", getText("UI_Text_Sample"), 0, getText("UI_Text_Sampledesc"), true);
     local chemiststudent = TraitFactory.addTrait("chemiststudent", getText("UI_Text_ChemStudent"), 3, getText("UI_Text_ChemStudentdesc"), false);
     chemiststudent:addXPBoost(Perks.Biochemistry, 1);
-    -- Exclusives
-    -- outdoorsman shouldn't show up on characters with this trait
-    -- TraitFactory.setMutualExclusive("Outdoorsman", "sample");
+    chemiststudent:getFreeRecipes():add("Make Glue");
+    chemiststudent:getFreeRecipes():add("Make Wood Glue");
+    chemiststudent:getFreeRecipes():add("Condense Gliceryn");
+    chemiststudent:getFreeRecipes():add("Make Plaster Powder");
+    chemiststudent:getFreeRecipes():add("Make Concrete Powder");
+    chemiststudent:getFreeRecipes():add("Make Fertilizer");
 
+    local chemistlabtech = TraitFactory.addTrait("chemistlabtech", getText("UI_Text_chemistlabtech"), 5, getText("UI_Text_chemistlabtechdesc"), false);
+    chemistlabtech:addXPBoost(Perks.Biochemistry, 1);
+    chemistlabtech:addXPBoost(Perks.MetalWelding, 1);
+    chemistlabtech:getFreeRecipes():add("Cast Distiller");
+    chemistlabtech:getFreeRecipes():add("Cast Industrial Press");
+    chemistlabtech:getFreeRecipes():add("Cast Condenser");
+    chemistlabtech:getFreeRecipes():add("Cast Mixer");
+    chemistlabtech:getFreeRecipes():add("Cast and Fill Sulfuric Barrel");
+    chemistlabtech:getFreeRecipes():add("Improvise Bunsen Burner");
+
+
+    local chemmed = TraitFactory.addTrait("chemmed", getText("UI_Text_chemmed"), 6, getText("UI_Text_chemmeddesc"), false);
+    chemmed:addXPBoost(Perks.Biochemistry, 1);
+    chemmed:addXPBoost(Perks.Doctor, 1);
+    chemmed:getFreeRecipes():add("Condense Disinfectant");
+    chemmed:getFreeRecipes():add("Condense Antiviral");
+    chemmed:getFreeRecipes():add("Make Energy Drink");
+    chemmed:getFreeRecipes():add("Make Ephedrine");
+    chemmed:getFreeRecipes():add("Make Analgesic Powder");
+    chemmed:getFreeRecipes():add("Make Painkillers");
+    chemmed:getFreeRecipes():add("Make Antiobiotics");
+    chemmed:getFreeRecipes():add("Make Benzene");
+    chemmed:getFreeRecipes():add("Condense Benzene");
+    chemmed:getFreeRecipes():add("Synthesize Candy Pills");
+    if getActivatedMods():contains("BiochemistryEdits") then
+        chemmed:getFreeRecipes():add("Make Beta Blockers");       
+    end
+    if not getActivatedMods():contains("BiochemistryEdits") then    
+        chemmed:getFreeRecipes():add("Powdered Sleeping Tablets");      
+    end
+
+        
+
+    local chemmaster = TraitFactory.addTrait("chemmaster", getText("UI_Text_chemmaster"), 0, getText("UI_Text_chemmasterdesc"), true);
+    chemmaster:getFreeRecipes():add("Make Glue");
+    chemmaster:getFreeRecipes():add("Make Wood Glue");
+    chemmaster:getFreeRecipes():add("Condense Gliceryn");
+    chemmaster:getFreeRecipes():add("Make Plaster Powder");
+    chemmaster:getFreeRecipes():add("Make Concrete Powder");
+    chemmaster:getFreeRecipes():add("Make Fertilizer");
+    chemmaster:getFreeRecipes():add("Distill Corn Oil");
+    chemmaster:getFreeRecipes():add("Distill Bleach");
+    chemmaster:getFreeRecipes():add("Distill Vinegar");
+    chemmaster:getFreeRecipes():add("Distill Cleaning Liquid");
+    chemmaster:getFreeRecipes():add("Distill Petrol");
+    chemmaster:getFreeRecipes():add("Electrolysis Ethanol");
+    chemmaster:getFreeRecipes():add("Condense Disinfectant");
+    chemmaster:getFreeRecipes():add("Condense Propane Gas");
+    chemmaster:getFreeRecipes():add("Condense Antiviral");
+    chemmaster:getFreeRecipes():add("Make Energy Drink");
+    chemmaster:getFreeRecipes():add("Compress Propane Gas");
+--  chemmaster:getFreeRecipes():add("Make Toxic Bomb");
+    chemmaster:getFreeRecipes():add("Make Ephedrine");
+    chemmaster:getFreeRecipes():add("Make Dead Eye");
+    chemmaster:getFreeRecipes():add("Make Fluorhidric Acid");
+    chemmaster:getFreeRecipes():add("Make Analgesic Powder");
+    chemmaster:getFreeRecipes():add("Make Painkillers");
+    chemmaster:getFreeRecipes():add("Make Antiobiotics");
+    chemmaster:getFreeRecipes():add("Make Benzene");
+    chemmaster:getFreeRecipes():add("Condense Benzene");
+--  chemmaster:getFreeRecipes():add("Make Fire Bomb");
+    chemmaster:getFreeRecipes():add("Synthesize Candy Pills");
+    chemmaster:getFreeRecipes():add("Make Heracles Drug");
+    if getActivatedMods():contains("BiochemistryEdits") then
+        chemmaster:getFreeRecipes():add("Distill Petrol in Bottle");
+        chemmaster:getFreeRecipes():add("Make Gunpowder");
+        chemmaster:getFreeRecipes():add("Make Beta Blockers");       
+    end
+    if not getActivatedMods():contains("BiochemistryEdits") then    
+        chemmaster:getFreeRecipes():add("Powdered Sleeping Tablets");
+    end 
+
+    -- Exclusives
+    -- x shouldn't show up on characters with this trait
+    TraitFactory.setMutualExclusive("chemiststudent", "chemmaster");
+    TraitFactory.setMutualExclusive("chemmed", "chemmaster");
+    if getActivatedMods():contains("ProjectProfessions") then    
+      TraitFactory.setMutualExclusive("chemiststudent", "Illiterate");
+      TraitFactory.setMutualExclusive("chemmed", "Illiterate");
+    end
     --- finish up traits list (not sure what this does)
+
+
+
     TraitFactory.sortList();
 end
 
@@ -46,7 +132,7 @@ local function initOEProf()
 
     -- BURGER FLIPPER
     
-    local burgerflipper = ProfessionFactory.getProfession('burgerflipper');
+ --   local burgerflipper = ProfessionFactory.getProfession('burgerflipper');
  --    if not OE_isTraitInList(burgerflipper:getFreeTraits(), "sample") then
  --       burgerflipper:addFreeTrait("sample");
  --    end
@@ -61,7 +147,7 @@ local function initOEProf()
     if getActivatedMods():contains("BioChemistryLife") then    
         chef:addXPBoost(Perks.Biochemistry, 1);
     end 
-    BaseGameCharacterDetails.SetProfessionDescription(chef);
+--    BaseGameCharacterDetails.SetProfessionDescription(chef);
 
 --  DOCTOR
 --  Doctors study chemistry
@@ -70,7 +156,7 @@ local function initOEProf()
     if getActivatedMods():contains("BioChemistryLife") then    
         doctor:addXPBoost(Perks.Biochemistry, 2);
     end 
-    BaseGameCharacterDetails.SetProfessionDescription(doctor);
+--    BaseGameCharacterDetails.SetProfessionDescription(doctor);
 
 --  ENGINEER
 --  Engineers have to know some 
@@ -78,8 +164,19 @@ local function initOEProf()
     local engineer = ProfessionFactory.getProfession('engineer');
     if getActivatedMods():contains("BioChemistryLife") then    
         engineer:addXPBoost(Perks.Biochemistry, 1);
+        engineer:getFreeRecipes():add("Cast Industrial Press");
+        engineer:getFreeRecipes():add("Cast Condenser");
+        engineer:getFreeRecipes():add("Cast Mixer");
+        engineer:getFreeRecipes():add("Improvise Bunsen Burner");
+        engineer:getFreeRecipes():add("Cast and Fill Sulfuric Barrel");
+        engineer:getFreeRecipes():add("Electrolysis Ethanol");
+        engineer:getFreeRecipes():add("Compress Propane Gas");
+        engineer:getFreeRecipes():add("Condense Benzene");
+        engineer:getFreeRecipes():add("Make Benzene");
+        engineer:getFreeRecipes():add("Make Toxic Bomb");
+        engineer:getFreeRecipes():add("Make Fire Bomb");
     end 
-    BaseGameCharacterDetails.SetProfessionDescription(engineer);
+--    BaseGameCharacterDetails.SetProfessionDescription(engineer);
 
 --  NURSE
 --  Nurses study some chemistry
@@ -88,35 +185,37 @@ local function initOEProf()
     if getActivatedMods():contains("BioChemistryLife") then    
         nurse:addXPBoost(Perks.Biochemistry, 1);
     end 
-    BaseGameCharacterDetails.SetProfessionDescription(nurse);
+--    BaseGameCharacterDetails.SetProfessionDescription(nurse);
 
 --  NEW OCCUPATIONS --
-
 --  CHEMIST
---  Vanilla version
-    if (not getActivatedMods():contains("SimpleOverhaulTraitsAndOccupations")) and (not getActivatedMods():contains("OccupationsExpertises")) then    
-        local chemist = ProfessionFactory.addProfession("chemist", getText("UI_prof_chemist"), "icon_chemist", 6, getText("UI_profdesc_chemist"))
-        chemist:addXPBoost(Perks.Biochemistry, 3)
-        BaseGameCharacterDetails.SetProfessionDescription(chemist);
-    end 
+--  Vanilla version (non-SOTO, not PP)
+    if (not getActivatedMods():contains("SimpleOverhaulTraitsAndOccupations")) and (not getActivatedMods():contains("ProjectProfessions")) then    
 
+        local chemist = ProfessionFactory.addProfession("chemist", getText("UI_prof_chemist"), "icon_chemist", 4, getText("UI_profdesc_chemist"))
+        chemist:addXPBoost(Perks.Biochemistry, 3)
+        chemist:addFreeTrait("chemmaster");
+    end 
 --  SOTO version
     if getActivatedMods():contains("SimpleOverhaulTraitsAndOccupations") then    
+        local chemist = ProfessionFactory.addProfession("chemist", getText("UI_prof_chemist"), "icon_chemist", 6, getText("UI_profdesc_chemist"))
+        chemist:addXPBoost(Perks.Biochemistry, 4)
+        chemist:addFreeTrait("chemmaster");
+     end 
+
+--  PP version
+    if getActivatedMods():contains("ProjectProfessions") then    
         local chemist = ProfessionFactory.addProfession("chemist", getText("UI_prof_chemist"), "icon_chemist", 8, getText("UI_profdesc_chemist"))
-        chemist:addXPBoost(Perks.Biochemistry, 2)
-        BaseGameCharacterDetails.SetProfessionDescription(chemist);
+        chemist:addXPBoost(Perks.Biochemistry, 4)       
+        chemist:addFreeTrait("literateprof")         
+        chemist:addFreeTrait("chemmaster");       
     end 
 
---  This is where I would replace pseudo traits with the actual traits (I think)
     local profList = ProfessionFactory.getProfessions()
-    for i=1,profList:size() do
-        local prof = profList:get(i-1)
- --       if prof:getType() == "unemployed" then
- --           prof:setDescription(getText("UI_profdesc_unemployed") .. "\nCan slack off on a chair, couch or bed to reduce boredom.\nSlacker trait will appear in game after character creation.");
- --       else
- --           BaseGameCharacterDetails.SetProfessionDescription(prof)
- --       end
-    end
+        for i=1,profList:size() do
+            local prof = profList:get(i-1)
+--            BaseGameCharacterDetails.SetProfessionDescription(prof)
+        end
     
 end
 
